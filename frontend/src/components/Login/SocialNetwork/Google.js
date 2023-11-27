@@ -32,7 +32,8 @@ function LoginGoogle() {
   const onLoginWithGoogle = async (res) => {
     try {
       const { accessToken } = res;
-
+      console.log(res);
+      console.log(accessToken);
       const response = await accountApi.postLoginWithGoogle(accessToken);
       const { status, data } = response;
 
@@ -62,6 +63,7 @@ function LoginGoogle() {
       onSuccess={onLoginWithGoogle}
       onFailure={onLoginWithGoogle}
       cookiePolicy={'single_host_origin'}
+      // responseType="code"
     />
   );
 }
